@@ -1,0 +1,36 @@
+<h1>Post#new</h1>
+
+<!--  Grab the error messages  -->
+<% if @posts.errors.any? %>
+  <% @posts.errors.full_messages.each do |error|  %>
+  <p>
+  <%= error %>
+  </p>
+  <% end %>
+<% end %>
+
+<%= form_for @posts, url:"/post" do |f| %>
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title, :autofocus=>true %>
+  </p>
+  <p>
+    <%= f.label :author %>
+    <%= f.collection_select(:author_id, Author.all, :id, :first_name, prompt: "Who are you?" ) %>
+  </p>
+  <p>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.label :category %>
+    <%= f.text_field :category %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+<p>
+  <%= link_to"Back", :back %>
+</p>
+<p>Find me in app/views/post/new.html.erb</p>

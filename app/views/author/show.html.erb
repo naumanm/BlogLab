@@ -1,0 +1,29 @@
+<h1>Author#show</h1>
+
+<p>
+  <%= link_to 'New post', "/post/new" %>
+</p>
+
+
+<p>
+  <%= @authors.id %>
+  <%= @authors.first_name %>
+  <%= @authors.last_name %>
+  <%= @authors.age %>
+</p>
+
+<p>
+  @posts <%= @posts %>
+</p>
+<p>
+  @authors <%= @authors %>
+</p>
+
+<p>
+  <%= link_to @authors.first_name, "/author/#{@authors.id}/edit" %>
+</p>
+
+<p>
+  <%= link_to "Show posts", "/post/#{@authors.id}" %>
+</p>
+
